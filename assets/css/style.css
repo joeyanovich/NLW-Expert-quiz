@@ -22,9 +22,15 @@ header {
 }
 
 header h1 {
+  margin-top: 1.5rem;
+
   font-size: 1.875rem;
 
   color: #F1F5F9;
+}
+
+#quiz {
+  counter-reset: quiz-item;
 }
 
 main {
@@ -35,14 +41,41 @@ main {
 
 .quiz-item {
   margin-top: 1.5rem;
+  
+  overflow: hidden;
+
   border: 1px solid #475569;
   border-radius: 6px;
 }
 
 .quiz-item h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
   padding: 1rem 1.25rem;
 
   color: #E2E8F0;
+  background-color: #1E293B;
+}
+
+.quiz-item h3:before {
+  counter-increment: quiz-item;
+  content: counter(quiz-item);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 1.75rem;
+  height: 1.75rem;
+
+  border-radius: 50%;
+
+  font-size: 0.75rem;
+
+  background-color: #475569;
 }
 
 .quiz-item dl {
@@ -69,6 +102,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 
   width: 1rem;
   height: 1rem;
